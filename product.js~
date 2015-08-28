@@ -1,0 +1,80 @@
+var count_for_index=0;
+var Prod={
+    change:[],
+    productList:[],
+    product:[],
+    price:[],
+
+    validate:function(obj){
+	if($.type(obj.name)==="string" && $.type(obj.price)==="number")
+	{
+	    return true;
+	}
+	else return false;
+    },
+
+    create:function(obj){
+	if(this.validate(obj)){
+	    this.productList.push(obj);
+	}
+	else alert("Validation Failed!!");
+    },
+
+    find_price:function(item){
+	$.each(Prod.productList,function(i,el){
+	    if(el.name===item)
+	    {
+		alert(el.price);
+		return false;
+	    }
+//	    else alert("no such item is there!! SORRY!!")
+	})
+    },
+
+    find_product:function(cost){
+	$.each(Prod.productList,function(i,el){
+	    if(el.price===cost)
+	    {
+		// $(".ul li").each(function(idx,li){
+		//     alert(i);
+		//     while(idx===i){
+		// 	$(this).addClass("select");			
+		//     }//while finished
+		// });//li traversing finished
+		alert(el.name);
+		//return false;
+	    }
+//	    else alert("no such product of such price is found!!")
+	})
+    },
+
+    update_price:function(product,price){
+	$.each(Prod.productList,function(i,el){
+	    if(el.name===product)
+	    {
+		count_for_index=i;
+		var p=el.price;
+		Prod.change.push({name:product,price:p});
+		el.price=price;
+		return false;
+	    }
+//	    else alert("no such product is available");
+	})
+    },
+
+    delete:function(el){
+	$(el).fadeOut("slow");
+    }
+    
+    
+}
+/*Prod.create({name:"apple",price:60});
+  Prod.create({name:"banana",price:20});
+  alert(Prod.find_price(String(prompt("enter the product name::"))));
+  alert(Prod.find_product(Number(prompt("enter the price::"))));
+  var oldProduct=String(prompt("enter the product name"));
+  var newPrice=Number(prompt("enter the product's new price"));
+  Prod.update_price(oldProduct,newPrice);
+  console.log(Prod.productList);
+*/
+

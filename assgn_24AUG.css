@@ -1,0 +1,15 @@
+body{
+    background-image:url(/home/kreetiuser/Pictures/castle_dracula.jpg);
+}
+.select{
+    border-style: solid;
+    border-color: #ff0000 #00ff00 #0000ff;
+    background-color:yellow;
+}
+.ProductList{
+    margin:20px;
+    padding:10px;
+}
+.fieldset{
+    display:inline-block;
+}

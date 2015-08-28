@@ -1,0 +1,73 @@
+$("document").ready(function(){
+    var prod_count=0;
+    var price_count=0;
+    
+    $("#Submit").click(function(e){
+	e.preventDefault();
+	
+	$("input.product_name").each(function(i,el){
+	    Prod.product.push($(el).val());
+	    prod_count+=1;
+	});//product_name closed
+	console.log($.type(Prod.product[0]));
+
+	$("input.product_price").each(function(i,el){
+	    Prod.price.push($(el).val());
+	    price_count+=1;
+	});//product_price closed
+	console.log($.type(Prod.price[0]));
+
+	for(var i=0;i<prod_count;i++){
+	    Prod.create({name:Prod.product[i],price:Number(Prod.price[i])});
+	}//for closed
+
+	for(var i=0;i<prod_count;i++){
+	    if((Prod.productList[i].name!=="") && (Prod.productList[i].price!=="")){
+		$(" .ProductList .ul").append("<li data-id="+i+">Product Name is: " +"<em>" + Prod.productList[i].name + "</em>" + " ; " + "Price is:: "+ "<em>" + Prod.productList[i].price + "</em></li>");
+	    }//if closed
+	    else alert("Fill up the form correctly!!");
+	}//for closed
+
+    })//submit closed
+    
+    $("#Submit_another").click(function(e){
+	e.preventDefault();
+	var row=$("<tr> </tr>");
+	row.append("<td><input name=product_name value='' class=product_name></td>");
+	row.append("<td><input type=number min=0 name=product_price value='' class=product_price></td>");
+	$(".list").append(row);
+    });//submit_another closed
+
+    $("#clear").click(function(){
+	$("form")[0].clear();
+    });//clear closed
+
+    $(".ul").click(function(e){
+//	$(this).fadeOut("slow");
+	Prod.delete(e.target.data);
+    });//ending list selection
+
+    $("#find_price").click(function(e){
+	e.preventDefault();
+	Prod.find_price(prompt("Enter the Product name::"));
+    });//find_price closed
+
+    $("#find_product").click(function(e){
+	e.preventDefault();
+	Prod.find_product(Number(prompt("Enter the Price::")));
+    });//find_product closed
+
+    $("#Upgrade_Product_Price").click(function(e){
+	e.preventDefault();
+	var old_prod=prompt("Enter the old product name::");
+	var new_price=prompt("Enter the new product price::");
+	Prod.update_price(old_prod,new_price);
+	$(".ul li").each(function(idx,li){
+	    if(idx===count_for_index){
+		$(this).html("Product Name is: <>"  + Prod.productList[count_for_index].name  + " ; Price is:: " + Prod.productList[count_for_index].price);
+		return false;
+	    }//if closed
+	});//ul traverse closed
+	console.log(count_for_index);
+    });//upgrade closed
+});//document end

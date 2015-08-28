@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Assignment using jQuery</title>
+  </head>
+  <body>
+    <form class="form">
+      <fieldset class="fieldset">
+	<table>
+	  <thead>
+	    <legend>
+	      <tr>
+		<th>Product Name</th>
+		<th>Product Price</th>
+	      </tr>
+	    </legend>
+	  </thead>
+	  <tbody class="newField">
+	    <tr>
+	      <td><input name="product_name" placeholder="Enter Product Name" value="" class="product_name" autofocus></td>
+	      <td><input type="number" min="0" name="product_price" placeholder="Enter Product Price"  value="" class="product_price"></td>
+	    </tr>
+	  </tbody>
+	</table>
+	<button id="Submit">Submit</button>
+	<button id="Submit_another">Add another List</button>
+      </fieldset>
+          <div class="button_list">
+      </br><button id="clearList">Clear Product Table</button></br>
+      <button id="clearEntry">Clear Entry</button></br>
+      <button id="find_price">Find Price</button></br>
+      <button id="find_product">Find Product</button></br>
+      </div> 
+    </form>
+
+    <div class="ProductList">
+      <table class="table" border=1 cellpadding="5px" bgcolor="#66CC99" width="5px">
+	<thead>
+	  <td align="left">Product Details Table</td>
+	</thead>
+	<tr>
+	  <th> Name of the Product::</th>
+	  <th> Price of the product::</th>
+	</tr>
+	<tbody class="tbody">
+	</tbody>
+      </table>	
+    </div> 
+    
+    <script src="jquery.js"></script>
+    <script src="product.js"></script>
+    <script src="product_dom.js"></script>
+    <link rel="stylesheet" href="assgn_24AUG.css"> 
+  </body>
+</html>
+

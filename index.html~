@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Assignment using jQuery</title>
+  </head>
+  <body>
+    <form class="form">
+      <table>
+	<thead>
+	  <tr>
+	    <th>Product Name</th>
+	    <th>Product Price</th>
+	  </tr>
+	</thead>
+	<tbody class="list">
+	  <tr>
+	    <td><input name="product_name" value="" class="product_name"></td>
+	    <td><input type="number" min="0" name="product_price" value="" class="product_price"></td>
+	  </tr>
+	</tbody>
+      </table>
+      <button id="Submit">Submit</button>	
+      <button id="Submit_another">Add another List</button>
+      <button id="clear">Clear Field</button>	
+      <button id="find_price">Find Price</button>
+      <button id="find_product">Find Product</button>
+      <button id="Upgrade_Product_Price">Upgrade Product</button>
+    </form>
+    
+    <div class="ProductList">
+      <ul class="ul"> Product List
+      </ul>	
+    </div>
+    
+    <script src="jquery.js"></script>
+    <script src="product.js"></script>
+    <script src="product_dom.js"></script>
+    <link rel="stylesheet" href="assgn_24AUG.css"> 
+  </body>
+</html>
+ 
